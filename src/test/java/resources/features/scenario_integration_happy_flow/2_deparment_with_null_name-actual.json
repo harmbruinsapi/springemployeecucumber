@@ -1,0 +1,6 @@
+{
+  "timestamp" : "2024-05-17T20:34:19.051+00:00",
+  "status" : 400,
+  "error" : "Bad Request",
+  "path" : "/employee"
+}

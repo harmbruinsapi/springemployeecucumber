@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EmployeeServiceApplication<Employee-main>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.invenna.testcode.employee.EmployeeServiceApplication",
+            "projectName": "Employee-main",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

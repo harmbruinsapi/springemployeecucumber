@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: EmployeeService
+springdoc:
+  api-docs:
+    enabled: ${ENABLE_SWAGGER_UI:true}
+  swagger-ui:
+    deep-linking: false
+    display-operation-id: false
+    default-model-expand-depth: 3
+    default-models-expand-depth: 3
+    default-model-rendering: MODEL
+    display-request-duration: false
+    doc-expansion: FULL
+    filter: false
+    operations-sorter: ALPHA
+    show-extensions: true
+    show-common-extensions: true
+    tags-sorter: ALPHA
+    supported-submit-methods: DEFAULT_SUBMIT_METHODS
+    validator-url: null
+    path: /swagger-ui.html
