@@ -1,9 +1,0 @@
-{
-  "name": "HOI",
-  "department": {
-    "name": "DEPARTMENTA"
-  },
-  "salary": 3500,
-  "employeeStatus": "ACTIVE",
-  "joiningDate": "2024-05-08"
-}

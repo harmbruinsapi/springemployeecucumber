@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: EmployeeService
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings.trace: false
+      settings.web-allow-others: false
+  datasource:
+    #because of time I did not make the database persistent
+    # url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:~/testdb;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 9009
+springdoc:
+  api-docs:
+    enabled: ${ENABLE_SWAGGER_UI:true}
+  swagger-ui:
+    deep-linking: false
+    display-operation-id: false
+    default-model-expand-depth: 3
+    default-models-expand-depth: 3
+    default-model-rendering: MODEL
+    display-request-duration: false
+    doc-expansion: FULL
+    filter: false
+    operations-sorter: ALPHA
+    show-extensions: true
+    show-common-extensions: true
+    tags-sorter: ALPHA
+    supported-submit-methods: DEFAULT_SUBMIT_METHODS
+    validator-url: null
+    path: /swagger-ui.html

@@ -35,19 +35,19 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 
 import com.invenna.testcode.employee.controllers.EmployeeEndpoint;
+import com.invenna.testcode.employee.controllers.SearchEndpoint;
 import com.invenna.testcode.employee.models.Department;
 import com.invenna.testcode.employee.models.Employee;
 import com.invenna.testcode.employee.models.EmployeeStatus;
 import com.invenna.testcode.employee.service.EmployeeService;
-
-
+import com.invenna.testcode.employee.service.SearchService;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = EmployeeEndpoint.class)
 @AutoConfigureMockMvc 
 @EnableAutoConfiguration(exclude=SecurityAutoConfiguration.class)
-@TestPropertySource(locations = "classpath:application.yml")
+@TestPropertySource(locations = "classpath:application-persistent.yml")
 @AutoConfigureTestDatabase
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = {EmployeeEndpoint.class})
 public class EmployeeControllerIntegrationTest {
 
     @Autowired
@@ -55,6 +55,9 @@ public class EmployeeControllerIntegrationTest {
 
     @MockBean
     private EmployeeService service;
+
+    @MockBean
+    private SearchService serviceSearch;
 
     @Before
     public void setUp() throws Exception {

@@ -1,0 +1,36 @@
+[
+    {
+        "employeeName": "dBDCvtsqYcLXyLB2WD180WAGXxBHV6F6npOoC0IZ0e6jQ-8mZkQ1@\"OG",
+        "departmentName": "Ig@aYT",
+        "employeeStatus": "ACTIVE",
+        "salaryRange": {
+            "from": 0,
+            "to": 0
+        },
+        "joiningDateRange": {
+            "from": "2024-05-19",
+            "to": "2024-05-19"
+        }
+    },
+    {
+        "employeeName": "Alex",
+        "departmentName": "It Department",
+        "employeeStatus": "ACTIVE",
+        "salaryRange": {
+            "from": 30000,
+            "to": 70000
+        },
+        "joiningDateRange": {
+            "from": [
+                2024,
+                4,
+                19
+            ],
+            "to": [
+                2024,
+                9,
+                19
+            ]
+        }
+    }
+]
