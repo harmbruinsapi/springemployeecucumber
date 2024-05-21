@@ -34,6 +34,7 @@ import com.invenna.testcode.employee.controllers.SearchEndpoint;
 import com.invenna.testcode.employee.models.Department;
 import com.invenna.testcode.employee.models.Employee;
 import com.invenna.testcode.employee.models.EmployeeStatus;
+import com.invenna.testcode.employee.models.JoiningDateRange;
 import com.invenna.testcode.employee.models.SalaryRange;
 import com.invenna.testcode.employee.models.Search;
 import com.invenna.testcode.employee.service.EmployeeSearchFactory;
@@ -137,6 +138,43 @@ public class SearchControllerIntegrationTest {
     }
 
     @Test
+    public void test_When_SearchEmployee_is_in_salary_range() throws Exception {
+    // Some test data
+        Department department = Department.builder()
+        .name("IT Department")
+        .build();
+    
+    // Some test data
+    Search search = Search.builder()
+        .employeeName("Alex")
+        .salaryRange(new SalaryRange(BigDecimal.valueOf(800), BigDecimal.valueOf(1200)))
+        .build();
+
+    // Some test data
+    List<Employee> employeeList = new ArrayList<>();
+    employeeList.add(Employee.builder()
+        .id(1)
+        .name("Alex")
+        .department(department)
+        .employeeStatus(EmployeeStatus.ACTIVE)
+        .salary(BigDecimal.valueOf(1000))
+        .joiningDate(LocalDate.now())
+        .build());
+
+    // Mocking the service
+    when(employeeSearchFactory.search(Mockito.any())).thenReturn(employeeList);
+
+    // Perform test
+    mvc.perform(post("/employee/search")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(JsonUtil.toJson(search)))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        .andExpect(jsonPath("$[0].name", is("Alex")))
+        .andExpect(jsonPath("$[0].employeeStatus", is("ACTIVE")));
+    } 
+
+    @Test
     public void test_When_SearchEmployee_is_terminated() throws Exception {
     // Some test data
         Department department = Department.builder()
@@ -173,7 +211,7 @@ public class SearchControllerIntegrationTest {
     }
 
     @Test
-    public void test_When_SearchEmployee_is_in_salary_range() throws Exception {
+    public void test_When_SearchEmployee_is_in_date_range() throws Exception {
     // Some test data
         Department department = Department.builder()
         .name("IT Department")
@@ -183,6 +221,7 @@ public class SearchControllerIntegrationTest {
     Search search = Search.builder()
         .employeeName("Alex")
         .salaryRange(new SalaryRange(BigDecimal.valueOf(800), BigDecimal.valueOf(1200)))
+        .joiningDateRange(new JoiningDateRange(LocalDate.now().minusDays(1), LocalDate.now().plusDays(1)))
         .build();
 
     // Some test data
@@ -207,9 +246,5 @@ public class SearchControllerIntegrationTest {
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$[0].name", is("Alex")))
         .andExpect(jsonPath("$[0].employeeStatus", is("ACTIVE")));
-    }
-
-
-
-    
+    } 
 }
