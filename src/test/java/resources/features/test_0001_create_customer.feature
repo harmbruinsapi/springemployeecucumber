@@ -75,9 +75,9 @@ Feature: Integration Tests - Create -Read - Update - Delete operations for Emplo
       | operation | scenario                          | employee                                    | status_code |
       # Happy path scenarios:
       | CREATE    | scenario_integration_happy_flow   | 3_create_empl_for_same_department           | 201         |
-      # | CREATE    | scenario_integration_happy_flow   | 4_create_empl_for_same_department           | 201         |
-      # | READ      | scenario_integration_happy_flow   | 3_read_empl_for_same_department           | 200         |
-      # | READ      | scenario_integration_happy_flow   | 4_read_empl_for_same_department           | 200         |
+      | CREATE    | scenario_integration_happy_flow   | 4_create_empl_for_same_department           | 201         |
+      | READ      | scenario_integration_happy_flow   | 3_read_empl_for_same_department           | 200         |
+      | READ      | scenario_integration_happy_flow   | 4_read_empl_for_same_department           | 200         |
 
   Scenario Outline: Update Employee Test - Unhappy Path
     Given the client has access to the employee management system
