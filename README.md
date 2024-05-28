@@ -9,9 +9,9 @@ To test the project
 
 Swagger documentation is available in http://localhost:8080/swagger-ui/index.html.
 
-===================================== 
+*=====================================* 
 Initial Setup 
-===================================== 
+*=====================================*
 In this test case, I established a behavior-driven test framework for integration testing and a unit test framework with a mock service. The initial setup involved meeting the base requirements, such as Java 8 or 11. However, due to startup issues, I resorted to using Java 17. After some research, I discovered that the minimum requirement was a combination of Spring Boot 3 and Java 17. It was confirmed that this wasn't a strict requirement and proceeded with the development.
 
 The first step was to tackle the most complex tasks. It had been a while since I last worked with Jenkins, so I started with the familiar Cucumber framework. Setting up Jenkins was challenging as I usually work with Azure DevOps pipelines, and I had to use a Docker container for the base setup. I discovered that Jenkins doesn't support YAML by default, which was disappointing. I decided to stick with an example due to time constraints, outlining the general scans and procedures I use.
