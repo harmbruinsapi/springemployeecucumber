@@ -18,6 +18,7 @@ The first step was to tackle the most complex tasks. It had been a while since I
 Upon starting, I realized that the requirements were not comprehensive. I decided to define some requirements, which I usually do with a team. I created a 'testdecisions' folder and set some rules. For instance, the salary must be higher than 0, there should be three statuses, start dates should not exceed end dates, and some process requirements. I also added some standard input validation checks.
 
 ===================================== Cucumber File and Rest Assured =====================================
+
 Typically, the process begins with the Cucumber files, which also serve as the code's placeholder. I chose Rest Assured for integration tests, which is used to call the endpoints and can be seen as an integration test. I created two classes: the StepDefinitions for mapping the Cucumber file and the EmployeeManagementSystem class to support the StepDefinitions. I also used a data-driven model, which uses an input file to send as a body to the server. The response generates an actual response file and compares it with an expected response.
 
 ===================================== Unit Tests ===================================== 
